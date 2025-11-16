@@ -1,0 +1,20 @@
+html {
+    font-size: 22px
+}
+body{
+    background-color: #ffffff;
+    color: black;
+}
+#container{
+    width: 80%;
+    height: 100%;
+    margin: 5rem;
+    border: rgb(0, 64, 202) 2px solid;
+    flex: auto;
+    align-items: center;
+}
+#portrait{
+    width: 300px;
+    height: 400px;
+    align-items: center;
+}
