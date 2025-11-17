@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Your Name - Portfolio</title>
+    <title>mjcaniceto - Portfolio</title>
     <style>
         * {
             margin: 0;
@@ -19,7 +19,7 @@
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 800px;
             margin: 0 auto;
             padding: 2rem;
         }
@@ -89,10 +89,19 @@
             transform: translateY(-2px);
         }
 
+        #mailButton {
+            width: auto;
+            padding: 0 1rem;
+            background-color: white;
+            color: black;
+            font-weight: bold;
+        }
+
         /* Bento Grid */
         .bento-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(12, 1fr);
+            grid-auto-rows: minmax(120px, auto);
             gap: 1.5rem;
             margin: 3rem 0;
         }
@@ -103,6 +112,48 @@
             border-radius: 12px;
             padding: 2rem;
             transition: all 0.3s;
+        }
+
+        #bento-box-experience {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            grid-column: span 7;  /* wider */
+            grid-row: span 1;
+            min-width: 260px;  
+        }
+
+        #bento-box-stack {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            grid-column: span 5;  /* wider */
+            grid-row: span 1;  
+            min-width: 150px; 
+        }
+
+        #bento-box-education {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            grid-column: span 5;  /* wider */
+            grid-row: span 1;  
+        }
+
+        #bento-box-certificates {
+            background: #111;
+            border: 1px solid #222;
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+            grid-column: span 7;  /* wider */
+            grid-row: span 1;  
         }
 
         .bento-box:hover {
@@ -144,6 +195,7 @@
         .bento-item .date {
             color: #666;
             font-size: 0.85rem;
+            justify-content: flex-end
         }
 
         .tech-tags {
@@ -245,8 +297,8 @@
         <section class="hero">
             <img src="./profilePic.JPG" alt="Profile Picture" class="hero-image">
             <div class="hero-content">
-                <h1>Your Name</h1>
-                <div class="position">Full Stack Developer</div>
+                <h1>Martin Julian Aniceto</h1>
+                <div class="position">Software Engineer</div>
                 <div class="description">
                     Passionate developer focused on building elegant solutions to complex problems. 
                     Specializing in modern web technologies and creating seamless user experiences.
@@ -262,10 +314,13 @@
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                         </svg>
                     </a>
-                    <a href="https://twitter.com" target="_blank" title="Twitter">
-                        <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24">
-                            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    <a href="./MartinJulianAniceto_Resume.pdf" target="_blank" title="View CV">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16c0 1.1.9 2 2 2h12a2 2 0 0 0 2-2V8l-6-6zm1 7h5l-5-5v5zM8 14h8v2H8v-2zm0-4h8v2H8v-2z"/>
                         </svg>
+                    </a>
+                    <a id="mailButton" href="mailto:mjcaniceto@gmail.com" target="_blank" title="Mail Me">
+                            <p> Email Me! </p> 
                     </a>
                 </div>
             </div>
@@ -273,37 +328,29 @@
 
         <!-- Bento Grid -->
         <div class="bento-grid">
-            <!-- Education Box -->
-            <div class="bento-box">
-                <h2><span class="icon">🎓</span>Education</h2>
+            
+            <!-- Work Experience -->
+            <div class="bento-box" id="bento-box-experience">
+                <h2><span class="icon">Experience</h2>
                 <div class="bento-item">
-                    <h3>Bachelor of Science in Computer Science</h3>
-                    <div class="subtitle">University Name</div>
-                    <div class="date">2018 - 2022</div>
+                    <h3>QA Automation Engineer</h3>
+                    <div class="subtitle">Dashlabs.ai</div>
+                    <div class="date">September 2025 - Present</div>
                 </div>
                 <div class="bento-item">
-                    <h3>Relevant Coursework</h3>
-                    <div class="subtitle">Data Structures, Algorithms, Web Development</div>
-                </div>
-            </div>
-
-            <!-- Work Experience Box -->
-            <div class="bento-box">
-                <h2><span class="icon">💼</span>Experience</h2>
-                <div class="bento-item">
-                    <h3>Senior Developer</h3>
-                    <div class="subtitle">Tech Company Inc.</div>
-                    <div class="date">2022 - Present</div>
+                    <h3>QA & Client Success Intern</h3>
+                    <div class="subtitle">Dashlabs.ai</div>
+                    <div class="date">June 2025 - August 2025</div>
                 </div>
                 <div class="bento-item">
-                    <h3>Junior Developer</h3>
-                    <div class="subtitle">Startup Name</div>
-                    <div class="date">2020 - 2022</div>
+                    <h3>Technical Lead</h3>
+                    <div class="subtitle">Akuma Apparel</div>
+                    <div class="date">January 2023 - December 2023</div>
                 </div>
             </div>
 
-            <!-- Tech Stack Box -->
-            <div class="bento-box">
+            <!-- Tech Stack -->
+            <div class="bento-box" id="bento-box-stack">
                 <h2><span class="icon">⚡</span>Tech Stack</h2>
                 <div class="bento-item">
                     <h3>Languages</h3>
@@ -311,19 +358,51 @@
                         <span class="tech-tag">JavaScript</span>
                         <span class="tech-tag">TypeScript</span>
                         <span class="tech-tag">Python</span>
-                        <span class="tech-tag">Java</span>
+                        <span class="tech-tag">C++</span>
                     </div>
                 </div>
                 <div class="bento-item">
                     <h3>Frameworks & Tools</h3>
                     <div class="tech-tags">
                         <span class="tech-tag">React</span>
+                        <span class="tech-tag">Tailwind</span>
                         <span class="tech-tag">Node.js</span>
-                        <span class="tech-tag">Docker</span>
-                        <span class="tech-tag">AWS</span>
+                        <span class="tech-tag">Tensorflow</span>
+                        <span class="tech-tag">MongoDB</span>
+                        
                     </div>
                 </div>
             </div>
+
+            <!-- Education -->
+            <div class="bento-box" id="bento-box-education">
+                <h2>Education</h2>
+                <div class="bento-item">
+                    <h3>BS in Computer Engineering (Specialization in Cybersecurity)</h3>
+                    <div class="subtitle">Mapua University</div>
+                    <div class="date">2020 - 2025</div>
+                </div>
+                <div class="bento-item">
+                    <h3>Publication</h3>
+                    <div class="subtitle">Eggplant Size Acquisition using Mask-RCNN (IICAIET 2025)</div>
+                </div>
+            </div>
+
+            <!-- Certificates -->
+            <div class="bento-box" id="bento-box-certificates">
+                <h2>Certificates</h2>
+                <div class="bento-item">
+                    <h3>Bachelor of Science in Computer Engineering (Specialization in Cybersecurity)</h3>
+                    <div class="subtitle">Mapua University</div>
+                    <div class="date">2020 - 2025</div>
+                </div>
+                <div class="bento-item">
+                    <h3>Publication</h3>
+                    <div class="subtitle">Eggplant Size Acquisition using Mask-RCNN (IICAIET 2025)</div>
+                </div>
+            </div>
+
+            
         </div>
 
         <!-- Projects Section -->
