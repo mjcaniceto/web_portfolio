@@ -221,7 +221,7 @@
         .cert-item p {
             font-size: 0.85rem;
             color: #888;
-            margin: 0 1rem 0 0;
+            margin-left: auto
         }
 
         .view-cert-btn {
@@ -230,6 +230,7 @@
             background: #333;
             border: none;
             border-radius: 6px;
+            margin-left: 2rem;
             color: #fff;
             cursor: pointer;
             transition: 0.2s;
@@ -240,41 +241,7 @@
         }
 
         /* Modal */
-        .cert-modal {
-            display: none;
-            position: fixed;
-            z-index: 999;
-            left: 0; top: 0;
-            width: 100%; height: 100%;
-            background-color: rgba(0,0,0,0.75);
-            justify-content: center;
-            align-items: center;
-        }
-
-        .cert-modal-content {
-            background-color: #111;
-            padding: 2rem;
-            border-radius: 12px;
-            max-width: 600px;
-            width: 90%;
-            text-align: center;
-            position: relative;
-        }
-
-        .cert-modal-content img {
-            max-width: 100%;
-            margin-top: 1rem;
-            border-radius: 8px;
-        }
-
-        .cert-close {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            font-size: 1.5rem;
-            color: #fff;
-            cursor: pointer;
-        }
+        
         .bento-box:hover {
             background: #151515;
             transform: translateX(4px);
@@ -392,6 +359,27 @@
 
         .project-link:hover {
             color: #e5e5e5;
+        }
+
+        /* width */
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background: black;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 10px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
         }
 
         @media (max-width: 768px) {
@@ -517,7 +505,7 @@
                     <div class="cert-list">
                         <!-- Networking & Cybersecurity Certificates -->
                         <div class="cert-item">
-                            <h4>CISCO Cybersecurity Essentials</h4>
+                            <h4> Cybersecurity Essentials</h4>
                             <p>Cisco</p>
                             <button class="view-cert-btn" data-cert="CISCO Cybersecurity Essentials Certificate">View</button>
                         </div>
@@ -550,17 +538,17 @@
                         <!-- Data & AI Certificates -->
                         <div class="cert-item">
                             <h4>Data Science in Python (2022)</h4>
-                            <p>Google / Data Platform</p>
+                            <p> University of Michigan</p>
                             <button class="view-cert-btn" data-cert="Data Science in Python 2022 Certificate">View</button>
                         </div>
                         <div class="cert-item">
                             <h4>Generative AI & Prompt Engineering (2025)</h4>
-                            <p>Google / Data Platform</p>
-                            <button class="view-cert-btn" data-cert="Generative AI & Prompt Engineering 2025 Certificate">View</button>
+                            <p> Mapua University </p>
+                            <button class="view-cert-btn" data-cert="/certificates/GenAI.png">View</button>
                         </div>
                         <div class="cert-item">
                             <h4>Big Data Emerging Technologies (2025)</h4>
-                            <p>Google / Data Platform</p>
+                            <p>Yonsei University</p>
                             <button class="view-cert-btn" data-cert="Big Data Emerging Technologies 2025 Certificate">View</button>
                         </div>
 
@@ -575,21 +563,17 @@
                             <p>Cisco</p>
                             <button class="view-cert-btn" data-cert="Cybersecurity Essentials Certificate">View</button>
                         </div>
-                        <div class="cert-item">
-                            <h4>Google Data Analytics</h4>
-                            <p>Google</p>
-                            <button class="view-cert-btn" data-cert="Google Data Analytics Certificate">View</button>
-                        </div>
+                        
                     </div>
 
                     <!-- Modal -->
-                    <div id="cert-modal" class="cert-modal">
+                    <!-- <div id="cert-modal" class="cert-modal">
                         <div class="cert-modal-content">
                             <span class="cert-close">&times;</span>
                             <h3 id="modal-cert-title"></h3>
                             <img id="modal-cert-image" src="" alt="Certificate Image">
                         </div>
-                    </div>
+                    </div> -->
                 </div>
                 
 
@@ -601,10 +585,10 @@
             <h2>Projects</h2>
             <div class="projects-grid">
                 <div class="project-card">
-                    <h3>Project Title One</h3>
+                    <h3>Rento</h3>
                     <div class="project-description">
-                        A comprehensive web application that solves a specific problem using modern technologies. 
-                        Features include user authentication, real-time updates, and responsive design.
+                        A smart rental management platform designed for small businesses. 
+                        Keep track of your inventory, manage bookings, and get timely reminders—all in one simple interface
                     </div>
                     <div class="tech-tags">
                         <span class="tech-tag">React</span>
@@ -617,7 +601,7 @@
                     </div>
                 </div>
 
-                <div class="project-card">
+                <!-- <div class="project-card">
                     <h3>Project Title Two</h3>
                     <div class="project-description">
                         An innovative mobile-first application designed to enhance productivity. 
@@ -649,30 +633,10 @@
                         <a href="#" class="project-link">→ Live Demo</a>
                         <a href="#" class="project-link">→ GitHub</a>
                     </div>
-                </div>
+                </div> -->
             </div>
         </section>
     </div>
-    <script>
-        const modal = document.getElementById("cert-modal");
-        const modalTitle = document.getElementById("modal-cert-title");
-        const modalImage = document.getElementById("modal-cert-image");
-        const closeBtn = document.querySelector(".cert-close");
-
-        // Attach click to all buttons
-        document.querySelectorAll(".view-cert-btn").forEach(btn => {
-            btn.addEventListener("click", () => {
-                modal.style.display = "flex";
-                modalTitle.textContent = btn.dataset.cert;
-                modalImage.src = `/certificates/${btn.dataset.cert.replaceAll(' ', '_')}.jpg`;
-            });
-        });
-
-        // Close modal
-        closeBtn.onclick = () => modal.style.display = "none";
-        window.onclick = e => {
-            if (e.target === modal) modal.style.display = "none";
-        };
-    </script>
+    
 </body>
 </html>
