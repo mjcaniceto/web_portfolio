@@ -5,16 +5,51 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>mjcaniceto - Portfolio</title>
     <style>
+        :root {
+            /* Colors */
+            --color-bg-main: #0a0a0a;
+            --color-bg-card: #111;
+            --color-bg-card-hover: #151515;
+            --color-bg-secondary: #1a1a1a;
+            --color-text-main: #e5e5e5;
+            --color-text-subtle: #aaa;
+            --color-text-secondary: #888;
+            --color-text-spec: #999;
+            --color-text-date: #666;
+            --color-border-main: #222;
+            --color-border-secondary: #333;
+            --color-border-cert: #2a2a2a;
+            --color-border-cert-hover: #3a3a3a;
+            --color-border-hover: #555;
+            --color-scrollbar-thumb: #888;
+            --color-scrollbar-thumb-hover: #555;
+            --color-scrollbar-track: black;
+            --color-button-bg: white;
+            --color-button-text: black;
+            --color-button-hover-bg: black;
+            --color-button-hover-text: white;
+            --color-button-hover-shadow: rgba(255, 255, 255, 0.2);
+            --color-debug-outline: #00f;
+        }
+
+        /* ==========================
+        GLOBAL STYLES
+        ========================== */
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
 
+        div {
+            outline: 1px dashed var(--color-debug-outline);
+        }
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: #0a0a0a;
-            color: #e5e5e5;
+            background: var(--color-bg-main);
+            color: var(--color-text-main);
             line-height: 1.6;
         }
 
@@ -30,7 +65,7 @@
             align-items: center;
             gap: 3rem;
             padding: 4rem 0;
-            border-bottom: 1px solid #222;
+            border-bottom: 1px solid var(--color-border-main);
         }
 
         .hero-image {
@@ -38,7 +73,7 @@
             height: 180px;
             border-radius: 50%;
             object-fit: cover;
-            border: 3px solid #333;
+            border: 3px solid var(--color-border-secondary);
         }
 
         .hero-content {
@@ -52,13 +87,13 @@
 
         .hero-content .position {
             font-size: 1.2rem;
-            color: #888;
+            color: var(--color-text-secondary);
             margin-bottom: 1rem;
         }
 
         .hero-content .description {
             font-size: 1rem;
-            color: #aaa;
+            color: var(--color-text-subtle);
             margin-bottom: 1.5rem;
             max-width: 600px;
         }
@@ -74,36 +109,34 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #1a1a1a;
-            border: 1px solid #333;
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-secondary);
             border-radius: 8px;
-            color: #e5e5e5;
+            color: var(--color-text-main);
             text-decoration: none;
             transition: all 0.3s;
         }
 
         .social-links a:hover {
-            background: #2a2a2a;
-            border-color: #555;
+            background: #2a2a2a; /* could be made variable if needed */
+            border-color: var(--color-border-hover);
             transform: translateY(-2px);
         }
 
         #mailButton {
             width: auto;
             padding: 0 1rem;
-            background-color: white;
-            color: black;
+            background-color: var(--color-button-bg);
+            color: var(--color-button-text);
             font-weight: bold;
-            
         }
-        
+
         #mailButton:hover {
-            background-color: #f0f0f0;  /* subtle shade change */
-            transform: translateY(-2px); /* lift on hover */
-            box-shadow: 0 4px 10px rgba(255, 255, 255, 0.2); /* soft glow */
+            background-color: var(--color-button-hover-bg);
+            color: var(--color-button-hover-text);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 10px var(--color-button-hover-shadow);
             transition: all 0.3s ease;
-            background-color: black;   /* fill on hover */
-            color: white;   
         }
 
         .location {
@@ -115,7 +148,7 @@
         @keyframes fadeIn {
             from { opacity: 0; transform: translateY(4px); }
             to   { opacity: 1; transform: translateY(0); }
-}
+        }
 
         /* Bento Grid */
         .bento-grid {
@@ -127,49 +160,44 @@
         }
 
         .bento-box {
-            background: #111;
-            border: 1px solid #222;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border-main);
+            border-radius: 12px;
+            padding: 2rem;
+            transition: all 0.3s;
+        }
+
+        #bento-box-experience,
+        #bento-box-stack,
+        #bento-box-education {
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border-main);
             border-radius: 12px;
             padding: 2rem;
             transition: all 0.3s;
         }
 
         #bento-box-experience {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-            grid-column: span 7;  /* wider */
+            grid-column: span 7;
             grid-row: span 1;
-            min-width: 260px;  
+            min-width: 260px;
         }
 
         #bento-box-stack {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-            grid-column: span 5;  /* wider */
-            grid-row: span 1;  
-            min-width: 150px; 
+            grid-column: span 5;
+            grid-row: span 1;
+            min-width: 150px;
         }
 
         #bento-box-education {
-            background: #111;
-            border: 1px solid #222;
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-            grid-column: span 5;  /* wider */
-            grid-row: span 1;  
+            grid-column: span 5;
+            grid-row: span 1;
         }
-        
+
         .spec {
             font-weight: 400;
             font-size: 0.95rem;
-            color: #999;
+            color: var(--color-text-spec);
         }
 
         /* Certificates Section */
@@ -178,8 +206,8 @@
             flex-direction: column;
             padding: 2rem;
             grid-column: span 7;
-            max-height: 480px; /* control vertical height */
-            overflow-y: auto; /* scroll if content exceeds height */
+            max-height: 480px;
+            overflow-y: auto;
             scroll-behavior: smooth;
         }
 
@@ -191,7 +219,7 @@
         }
 
         .cert-list-wrapper {
-            max-height: 480px; /* scrollable content */
+            max-height: 480px;
             overflow-y: auto;
         }
 
@@ -201,49 +229,47 @@
             align-items: center;
             padding: 0.75rem 1rem;
             border-radius: 8px;
-            background: #1a1a1a;
-            border: 1px solid #2a2a2a;
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-cert);
             transition: all 0.2s ease;
         }
 
         .cert-item:hover {
-            background: #222;
-            border-color: #3a3a3a;
+            background: var(--color-bg-card-hover);
+            border-color: var(--color-border-cert-hover);
         }
 
         .cert-item h4 {
             font-size: 0.95rem;
             font-weight: 500;
-            color: #e5e5e5;
+            color: var(--color-text-main);
             margin: 0;
         }
 
         .cert-item p {
             font-size: 0.85rem;
-            color: #888;
-            margin-left: auto
+            color: var(--color-text-secondary);
+            margin-left: auto;
         }
 
         .view-cert-btn {
             padding: 0.4rem 0.8rem;
             font-size: 0.8rem;
-            background: #333;
+            background: var(--color-border-secondary);
             border: none;
             border-radius: 6px;
             margin-left: 2rem;
-            color: #fff;
+            color: var(--color-text-main);
             cursor: pointer;
             transition: 0.2s;
         }
 
         .view-cert-btn:hover {
-            background: #444;
+            background: var(--color-border-hover);
         }
 
-        /* Modal */
-        
         .bento-box:hover {
-            background: #151515;
+            background: var(--color-bg-card-hover);
             transform: translateX(4px);
         }
 
@@ -273,15 +299,15 @@
         }
 
         .bento-item .subtitle {
-            color: #888;
+            color: var(--color-text-secondary);
             font-size: 0.9rem;
             margin-bottom: 0.3rem;
         }
 
         .bento-item .date {
-            color: #666;
+            color: var(--color-text-date);
             font-size: 0.85rem;
-            justify-content: flex-end
+            justify-content: flex-end;
         }
 
         .tech-tags {
@@ -292,12 +318,12 @@
         }
 
         .tech-tag {
-            background: #1a1a1a;
-            border: 1px solid #333;
+            background: var(--color-bg-secondary);
+            border: 1px solid var(--color-border-secondary);
             padding: 0.3rem 0.8rem;
             border-radius: 6px;
             font-size: 0.85rem;
-            color: #aaa;
+            color: var(--color-text-subtle);
         }
 
         /* Projects Section */
@@ -317,8 +343,8 @@
         }
 
         .project-card {
-            background: #111;
-            border: 1px solid #222;
+            background: var(--color-bg-card);
+            border: 1px solid var(--color-border-main);
             border-radius: 12px;
             padding: 2rem;
             transition: all 0.3s;
@@ -326,7 +352,7 @@
         }
 
         .project-card:hover {
-            border-color: #444;
+            border-color: var(--color-border-hover);
             transform: translateY(-4px);
         }
 
@@ -336,7 +362,7 @@
         }
 
         .project-card .project-description {
-            color: #aaa;
+            color: var(--color-text-subtle);
             font-size: 0.95rem;
             margin-bottom: 1rem;
         }
@@ -348,7 +374,7 @@
         }
 
         .project-link {
-            color: #888;
+            color: var(--color-text-secondary);
             text-decoration: none;
             font-size: 0.9rem;
             display: flex;
@@ -358,28 +384,25 @@
         }
 
         .project-link:hover {
-            color: #e5e5e5;
+            color: var(--color-text-main);
         }
 
-        /* width */
+        /* Scrollbar */
         ::-webkit-scrollbar {
             width: 7px;
         }
 
-        /* Track */
         ::-webkit-scrollbar-track {
-            background: black;
+            background: var(--color-scrollbar-track);
         }
 
-        /* Handle */
         ::-webkit-scrollbar-thumb {
-            background: #888;
+            background: var(--color-scrollbar-thumb);
             border-radius: 10px;
         }
 
-        /* Handle on hover */
         ::-webkit-scrollbar-thumb:hover {
-            background: #555;
+            background: var(--color-scrollbar-thumb-hover);
         }
 
         @media (max-width: 768px) {
@@ -396,16 +419,16 @@
             #bento-box-education,
             #bento-box-experience,
             #bento-box-certificates {
-                grid-column: 1 / -1 !important;   /* force full width */
+                grid-column: 1 / -1 !important;
                 width: 100%;
-                min-width: 0;                     /* IMPORTANT for grid shrink */
-            }
+                min-width: 0;
             }
 
             .projects-grid {
                 grid-template-columns: 1fr;
             }
         }
+
     </style>
 </head>
 <body>
@@ -414,6 +437,7 @@
         <section class="hero">
             <img src="./profilePic.JPG" alt="Profile Picture" class="hero-image">
             <div class="hero-content">
+
                 <h1>Martin Julian Aniceto</h1>
                 <div class="location">Manila, Philippines</div>
                 <div class="position">QA Automation  | Software Engineer</div>
@@ -463,7 +487,7 @@
                     <div class="date">June 2025 - August 2025</div>
                 </div>
                 <div class="bento-item">
-                    <h3>Technical Lead</h3>
+                    <h3>Web Developer &  Marketing Lead</h3>
                     <div class="subtitle">Akuma Apparel</div>
                     <div class="date">January 2023 - December 2023</div>
                 </div>
