@@ -43,13 +43,20 @@
         }
 
         div {
-            outline: 1px dashed var(--color-debug-outline);
+            /* outline: 1px dashed var(--color-debug-outline); */
         }
 
-        body {
+        body.dark-mode {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
             background: var(--color-bg-main);
             color: var(--color-text-main);
+            line-height: 1.6;
+        }
+
+        body.light-mode {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            background: var(--color-text-main);
+            color: var(--color-button-text);
             line-height: 1.6;
         }
 
@@ -71,7 +78,7 @@
         .hero-name {
             display: inline-flex;
             align-items: center;
-            gap: 2rem;
+            gap: 3.3rem;
         }
 
         #theme-button {
@@ -486,7 +493,7 @@
 
     </style>
 </head>
-<body>
+<body class="dark-mode">
     <div class="container">
         <!-- Hero Section -->
         <section class="hero">
@@ -527,7 +534,7 @@
                         </svg>
                     </a>
                     <a id="mailButton" href="mailto:mjcaniceto@gmail.com" target="_blank" title="Mail Me">
-                            <p> Email Me! </p> 
+                            Email Me! 
                     </a>
                 </div>
             </div>
@@ -538,7 +545,7 @@
             
             <!-- Work Experience -->
             <div class="bento-box" id="bento-box-experience">
-                <h2><span class="icon">Experience</h2>
+                <h2><span class="icon">Experience</span></h2>
                 <div class="bento-item">
                     <h3>Part-time QA Automation Engineer</h3>
                     <div class="subtitle">Dashlabs.ai</div>
@@ -734,6 +741,23 @@
             </div>
         </section>
     </div>
-    
+    <script>
+        const toggle = document.getElementById('button-theme');
+        const checkbox = toggle.querySelector('input');
+
+        function updateTheme(isDark) {
+            document.body.classList.toggle('dark-mode', isDark);
+            document.body.classList.toggle('light-mode', !isDark);
+        }
+
+        // Initialize toggle state (dark by default)
+        const isDark = document.body.classList.contains('dark-mode');
+        checkbox.checked = isDark;
+
+        // Listen for toggle changes
+        checkbox.addEventListener('change', () => {
+            updateTheme(checkbox.checked);
+        });
+        </script>
 </body>
 </html>
