@@ -67,7 +67,62 @@
             padding: 4rem 0;
             border-bottom: 1px solid var(--color-border-main);
         }
+        
+        .hero-name {
+            display: inline-flex;
+            align-items: center;
+            gap: 2rem;
+        }
 
+        #theme-button {
+            margin-left: auto;
+        }
+
+        /* Toggle switch styles */
+        .toggle-switch {
+            position: relative;
+            display: inline-block;
+            width: 50px;
+            height: 26px;
+        }
+
+        .toggle-switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+
+        .slider {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            border-radius: 34px;
+            transition: 0.4s;
+        }
+
+        .slider::before {
+            position: absolute;
+            content: "";
+            height: 22px;
+            width: 22px;
+            left: 2px;
+            bottom: 2px;
+            background-color: white;
+            border-radius: 50%;
+            transition: 0.4s;
+        }
+
+        .toggle-switch input:checked + .slider {
+            background-color: #333; /* Active theme background */
+        }
+
+        .toggle-switch input:checked + .slider::before {
+            transform: translateX(24px); /* Move the knob */
+        }
         .hero-image {
             width: 180px;
             height: 180px;
@@ -338,7 +393,7 @@
 
         .projects-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            grid-template-columns: 1fr;
             gap: 1.5rem;
         }
 
@@ -437,8 +492,16 @@
         <section class="hero">
             <img src="./profilePic.JPG" alt="Profile Picture" class="hero-image">
             <div class="hero-content">
-
-                <h1>Martin Julian Aniceto</h1>
+                <div class="hero-name">
+                    <h1>Martin Julian Aniceto</h1>
+                     <div id="theme-button">
+                        <label class="toggle-switch">
+                            <input type="checkbox" id="button-theme">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    
+                </div>
                 <div class="location">Manila, Philippines</div>
                 <div class="position">QA Automation  | Software Engineer</div>
                 <div class="description">
