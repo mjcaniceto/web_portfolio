@@ -392,6 +392,16 @@
                 grid-template-columns: 1fr;
             }
 
+            #bento-box-stack,
+            #bento-box-education,
+            #bento-box-experience,
+            #bento-box-certificates {
+                grid-column: 1 / -1 !important;   /* force full width */
+                width: 100%;
+                min-width: 0;                     /* IMPORTANT for grid shrink */
+            }
+            }
+
             .projects-grid {
                 grid-template-columns: 1fr;
             }
