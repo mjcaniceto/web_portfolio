@@ -17,7 +17,7 @@
                     <h1>Martin Julian Aniceto</h1>
                      <div id="theme-button">
                         <label class="toggle-switch">
-                            <input type="checkbox" id="button-theme">
+                            <input type="checkbox" id="button-box">
                             <span class="slider"></span>
                         </label>
                     </div>
@@ -138,7 +138,7 @@
                             <button class="view-cert-btn" data-cert="/certificates/DevNetAssociate.png">View</button>
                         </div>
                         <div class="cert-item">
-                            <h4>CCNA Enterprise Networking</h4>
+                            <h4>CCNA: Enterprise Networking</h4>
                             <p>Cisco</p>
                             <button class="view-cert-btn" data-cert="/certificates/ccnaEnterprise.png">View</button>
                         </div>
@@ -169,7 +169,7 @@
                         <div class="cert-item">
                             <h4>CCNA: Introduction to Networks</h4>
                             <p>Cisco</p>
-                            <button class="view-cert-btn" data-cert="/certificates/ccnaIntroToNetowrks.png">View</button>
+                            <button class="view-cert-btn" data-cert="/certificates/ccnaIntroToNetworks.png">View</button>
                         </div>
                         <div class="cert-item">
                             <h4>Cybersecurity Essentials</h4>
@@ -237,6 +237,32 @@
                 modal.style.display = "none";
                 modal.classList.remove("closing");
             }, 400); // match animation duration
+        });
+
+        // Theme Selector
+        const themeToggle = document.getElementById('button-box');
+        const body = document.body;
+
+        const currentTheme = localStorage.getItem('theme') || 'dark';
+        if (currentTheme === 'light') {
+            body.classList.remove('dark-mode');
+            body.classList.add('light-mode');
+            themeToggle.checked = true;
+        } else {
+            body.classList.add('dark-mode');
+            themeToggle.checked = false;
+        }
+
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.classList.remove('dark-mode');
+                body.classList.add('light-mode');
+                localStorage.setItem('theme', 'light');
+            } else {
+                body.classList.remove('light-mode');
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            }
         });
 
     </script>

@@ -1,560 +1,570 @@
-/* CSS Stylesheet */
-
 :root {
-            /* Colors Dark Mode*/
-            --color-bg-main: #0a0a0a;
-            --color-bg-card: #111;
-            --color-bg-card-hover: #151515;
-            --color-bg-secondary: #1a1a1a;
-            --color-text-main: #e5e5e5;
-            --color-text-subtle: #aaa;
-            --color-text-secondary: #888;
-            --color-text-spec: #999;
-            --color-text-date: #666;
-            --color-border-main: #222;
-            --color-border-secondary: #333;
-            --color-border-cert: #2a2a2a;
-            --color-border-cert-hover: #3a3a3a;
-            --color-border-hover: #555;
-            --color-scrollbar-thumb: #888;
-            --color-scrollbar-thumb-hover: #555;
-            --color-scrollbar-track: black;
-            --color-button-bg: white;
-            --color-button-text: black;
-            --color-button-hover-bg: black;
-            --color-button-hover-text: white;
-            --color-button-hover-shadow: rgba(255, 255, 255, 0.2);
-            --color-debug-outline: #00f;
-
-            /* Colors Light Mode */
-            --color-bg-main-light: #f5f5f5;
-            --color-bg-card-light: #ffffff; 
-            --color-bg-card-hover-light: #eaeaea;
-            --color-bg-secondary-light: #ffffff;        
-            --color-text-main-light: #1a1a1a;   
-            --color-text-subtle-light: #555;
-            --color-text-secondary-light: #777; 
-            --color-text-spec-light: #666;
-            --color-text-date-light: #888;
-            --color-border-main-light: #ddd;
-            --color-border-secondary-light: #ccc;
-            --color-border-cert-light: #bbb;
-            --color-border-cert-hover-light: #aaa;
-            --color-border-hover-light: #999;
-            --color-scrollbar-thumb-light: #bbb;
-            --color-scrollbar-thumb-hover-light: #999;
-            --color-scrollbar-track-light: #f0f0f0;
-            --color-button-bg-light: black;
-            --color-button-text-light: white;
-            --color-button-hover-bg-light: white;
-            --color-button-hover-text-light: black; 
-            --color-button-hover-shadow-light: rgba(0, 0, 0, 0.2);
-        }
-
-        /* ==========================
-        GLOBAL STYLES
-        ========================== */
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        div {
-            /* outline: 1px dashed var(--color-debug-outline); */
-        }
-
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-            background: var(--color-bg-main);
-            color: var(--color-text-main);
-            line-height: 1.6;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 2rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--color-border-main);
-        }
-        
-        .hero-name {
-            display: inline-flex;
-            align-items: center;
-            gap: 3.3rem;
-        }
-
-        #theme-button {
-            margin-left: auto;
-        }
-
-        /* Toggle switch styles */
-        .toggle-switch {
-            position: relative;
-            display: inline-block;
-            width: 50px;
-            height: 26px;
-        }
-
-        .toggle-switch input {
-            opacity: 0;
-            width: 0;
-            height: 0;
-        }
-
-        .slider {
-            position: absolute;
-            cursor: pointer;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-color: #ccc;
-            border-radius: 34px;
-            transition: 0.4s;
-        }
-
-        .slider::before {
-            position: absolute;
-            content: "";
-            height: 22px;
-            width: 22px;
-            left: 2px;
-            bottom: 2px;
-            background-color: white;
-            border-radius: 50%;
-            transition: 0.4s;
-        }
-
-        .toggle-switch input:checked + .slider {
-            background-color: #333; /* Active theme background */
-        }
-
-        .toggle-switch input:checked + .slider::before {
-            transform: translateX(24px); /* Move the knob */
-        }
-        .hero-image {
-            width: 180px;
-            height: 180px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--color-border-secondary);
-        }
-
-        .hero-content {
-            flex: 1;
-        }
-
-        .hero-content h1 {
-            font-size: 2.5rem;
-            font-weight: 700;
-        }
-
-        .hero-content .position {
-            font-size: 1.2rem;
-            color: var(--color-text-secondary);
-            margin-bottom: 1rem;
-        }
-
-        .hero-content .description {
-            font-size: 1rem;
-            color: var(--color-text-subtle);
-            margin-bottom: 1.5rem;
-            max-width: 600px;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1rem;
-        }
-
-        .social-links a {
-            width: 40px;
-            height: 40px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: var(--color-bg-secondary);
-            border: 1px solid var(--color-border-secondary);
-            border-radius: 8px;
-            color: var(--color-text-main);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-
-        .social-links a:hover {
-            background: #2a2a2a; /* could be made variable if needed */
-            border-color: var(--color-border-hover);
-            transform: translateY(-2px);
-        }
-
-        #mailButton {
-            width: auto;
-            padding: 0 1rem;
-            background-color: var(--color-button-bg);
-            color: var(--color-button-text);
-            font-weight: bold;
-        }
-
-        #mailButton:hover {
-            background-color: var(--color-button-hover-bg);
-            color: var(--color-button-hover-text);
-            transform: translateY(-2px);
-            box-shadow: 0 4px 10px var(--color-button-hover-shadow);
-            transition: all 0.3s ease;
-        }
-
-        .location {
-            opacity: 0;
-            animation: fadeIn 0.8s ease forwards;
-            animation-delay: 0.2s;       
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(4px); }
-            to   { opacity: 1; transform: translateY(0); }
-        }
-
-        /* Bento Grid */
-        .bento-grid {
-            display: grid;
-            grid-template-columns: repeat(12, 1fr);
-            grid-auto-rows: minmax(120px, auto);
-            gap: 1.5rem;
-            margin: 3rem 0;
-        }
-
-        .bento-box {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border-main);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        #bento-box-experience,
-        #bento-box-stack,
-        #bento-box-education {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border-main);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-        }
-
-        #bento-box-experience {
-            grid-column: span 7;
-            grid-row: span 1;
-            min-width: 260px;
-        }
-
-        #bento-box-stack {
-            grid-column: span 5;
-            grid-row: span 1;
-            min-width: 150px;
-        }
-
-        #bento-box-education {
-            grid-column: span 5;
-            grid-row: span 1;
-        }
-
-        .spec {
-            font-weight: 400;
-            font-size: 0.95rem;
-            color: var(--color-text-spec);
-        }
-
-        /* Certificates Section */
-        #bento-box-certificates {
-            display: flex;
-            flex-direction: column;
-            padding: 2rem;
-            grid-column: span 7;
-            max-height: 480px;
-            overflow-y: auto;
-            scroll-behavior: smooth;
-        }
-
-        /* Certificate Items */
-        .cert-list {
-            display: flex;
-            flex-direction: column;
-            gap: 0.75rem;
-        }
-
-        .cert-list-wrapper {
-            max-height: 480px;
-            overflow-y: auto;
-        }
-
-        .cert-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.75rem 1rem;
-            border-radius: 8px;
-            background: var(--color-bg-secondary);
-            border: 1px solid var(--color-border-cert);
-            transition: all 0.2s ease;
-        }
-
-        .cert-item:hover {
-            background: var(--color-bg-card-hover);
-            border-color: var(--color-border-cert-hover);
-        }
-
-        .cert-item h4 {
-            font-size: 0.95rem;
-            font-weight: 500;
-            color: var(--color-text-main);
-            margin: 0;
-        }
-
-        .cert-item p {
-            font-size: 0.85rem;
-            color: var(--color-text-secondary);
-            margin-left: auto;
-        }
-
-        .view-cert-btn {
-            padding: 0.4rem 0.8rem;
-            font-size: 0.8rem;
-            background: var(--color-border-secondary);
-            border: none;
-            border-radius: 6px;
-            margin-left: 2rem;
-            color: var(--color-text-main);
-            cursor: pointer;
-            transition: 0.2s;
-        }
-
-        .view-cert-btn:hover {
-            background: var(--color-border-hover);
-        }
-
-        .modal {
-            display: none; 
-            position: fixed; 
-            z-index: 1000; 
-            left: 0;
-            top: 0;
-            width: 50%; 
-            height: 50%; 
-            overflow: auto; 
-            background-color: rgba(0, 0, 0, 0.8);
-
-            justify-content: center;
-            align-items: center;
-        }
-
-        .modal-content {
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 500px;     /* smaller width */
-            max-height: 80vh;     /* not too tall */
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .modal-content img {
-            max-width: 100%;
-            max-height: 70vh;
-            object-fit: contain;
-        }
-
-        #cert-modal {
-
-        }
-
-        @keyframes fadeOut {
-            from {
-                opacity: 1;
-                transform: scale(1);
-            }
-            to {
-                opacity: 0;
-                transform: scale(0.95);
-            }
-        }
-        
-        .modal.closing .modal-content {
-            animation: fadeOut 0.25s ease forwards;
-        }
-
-        #close-modal {
-            float: right;
-            cursor: pointer;
-        }
-
-        .bento-box:hover {
-            background: var(--color-bg-card-hover);
-            transform: translateX(4px);
-        }
-
-        .bento-box h2 {
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-
-        .bento-box .icon {
-            font-size: 1.5rem;
-        }
-
-        .bento-item {
-            margin-bottom: 1.5rem;
-        }
-
-        .bento-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .bento-item h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .bento-item .subtitle {
-            color: var(--color-text-secondary);
-            font-size: 0.9rem;
-            margin-bottom: 0.3rem;
-        }
-
-        .bento-item .date {
-            color: var(--color-text-date);
-            font-size: 0.85rem;
-            justify-content: flex-end;
-        }
-
-        .tech-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .tech-tag {
-            background: var(--color-bg-secondary);
-            border: 1px solid var(--color-border-secondary);
-            padding: 0.3rem 0.8rem;
-            border-radius: 6px;
-            font-size: 0.85rem;
-            color: var(--color-text-subtle);
-        }
-
-        /* Projects Section */
-        .projects-section {
-            margin-top: 3rem;
-        }
-
-        .projects-section h2 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .projects-grid {
-            display: grid;
-            grid-template-columns: 1fr;
-            gap: 1.5rem;
-        }
-
-        .project-card {
-            background: var(--color-bg-card);
-            border: 1px solid var(--color-border-main);
-            border-radius: 12px;
-            padding: 2rem;
-            transition: all 0.3s;
-            cursor: pointer;
-        }
-
-        .project-card:hover {
-            border-color: var(--color-border-hover);
-            transform: translateY(-4px);
-        }
-
-        .project-card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.8rem;
-        }
-
-        .project-card .project-description {
-            color: var(--color-text-subtle);
-            font-size: 0.95rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-links {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-
-        .project-link {
-            color: var(--color-text-secondary);
-            text-decoration: none;
-            font-size: 0.9rem;
-            display: flex;
-            align-items: center;
-            gap: 0.3rem;
-            transition: color 0.3s;
-        }
-
-        .project-link:hover {
-            color: var(--color-text-main);
-        }
-
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 7px;
-        }
-
-        ::-webkit-scrollbar-track {
-            background: var(--color-scrollbar-track);
-        }
-
-        ::-webkit-scrollbar-thumb {
-            background: var(--color-scrollbar-thumb);
-            border-radius: 10px;
-        }
-
-        ::-webkit-scrollbar-thumb:hover {
-            background: var(--color-scrollbar-thumb-hover);
-        }
-
-        @media (max-width: 768px) {
-            .hero {
-                flex-direction: column;
-                text-align: center;
-            }
-
-            .bento-grid {
-                grid-template-columns: 1fr;
-            }
-
-            #bento-box-stack,
-            #bento-box-education,
-            #bento-box-experience,
-            #bento-box-certificates {
-                grid-column: 1 / -1 !important;
-                width: 100%;
-                min-width: 0;
-            }
-
-            .projects-grid {
-                grid-template-columns: 1fr;
-            }
-        }
+    /* Colors Dark Mode*/
+    --color-bg-main: #0a0a0a;
+    --color-bg-card: #111;
+    --color-bg-card-hover: #151515;
+    --color-bg-secondary: #1a1a1a;
+    --color-text-main: #e5e5e5;
+    --color-text-subtle: #aaa;
+    --color-text-secondary: #888;
+    --color-text-spec: #999;
+    --color-text-date: #666;
+    --color-border-main: #222;
+    --color-border-secondary: #333;
+    --color-border-cert: #2a2a2a;
+    --color-border-cert-hover: #3a3a3a;
+    --color-border-hover: #555;
+    --color-scrollbar-thumb: #888;
+    --color-scrollbar-thumb-hover: #555;
+    --color-scrollbar-track: black;
+    --color-button-bg: white;
+    --color-button-text: black;
+    --color-button-hover-bg: black;
+    --color-button-hover-text: white;
+    --color-button-hover-shadow: rgba(255, 255, 255, 0.2);
+    --color-debug-outline: #00f;
+}
+
+/* Light Mode Variables */
+body.light-mode {
+    --color-bg-main: #f5f5f5;
+    --color-bg-card: #ffffff;
+    --color-bg-card-hover: #eaeaea;
+    --color-bg-secondary: #ffffff;
+    --color-text-main: #1a1a1a;
+    --color-text-subtle: #555;
+    --color-text-secondary: #777;
+    --color-text-spec: #666;
+    --color-text-date: #888;
+    --color-border-main: #ddd;
+    --color-border-secondary: #ccc;
+    --color-border-cert: #bbb;
+    --color-border-cert-hover: #aaa;
+    --color-border-hover: #999;
+    --color-scrollbar-thumb: #bbb;
+    --color-scrollbar-thumb-hover: #999;
+    --color-scrollbar-track: #f0f0f0;
+    --color-button-bg: black;
+    --color-button-text: white;
+    --color-button-hover-bg: white;
+    --color-button-hover-text: black;
+    --color-button-hover-shadow: rgba(0, 0, 0, 0.2);
+}
+
+/* ==========================
+GLOBAL STYLES
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: var(--color-bg-main);
+    color: var(--color-text-main);
+    line-height: 1.6;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+/* Hero Section */
+.hero {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    padding: 4rem 0;
+    border-bottom: 1px solid var(--color-border-main);
+}
+
+.hero-name {
+    display: inline-flex;
+    align-items: center;
+    gap: 3.3rem;
+}
+
+#theme-button {
+    margin-left: auto;
+}
+
+/* Toggle switch styles */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.toggle-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    border-radius: 34px;
+    transition: 0.4s;
+}
+
+.slider::before {
+    position: absolute;
+    content: "";
+    height: 22px;
+    width: 22px;
+    left: 2px;
+    bottom: 2px;
+    background-color: white;
+    border-radius: 50%;
+    transition: 0.4s;
+}
+
+.toggle-switch input:checked + .slider {
+    background-color: #333;
+}
+
+.toggle-switch input:checked + .slider::before {
+    transform: translateX(24px);
+}
+
+.hero-image {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--color-border-secondary);
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero-content h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+}
+
+.hero-content .position {
+    font-size: 1.2rem;
+    color: var(--color-text-secondary);
+    margin-bottom: 1rem;
+}
+
+.hero-content .description {
+    font-size: 1rem;
+    color: var(--color-text-subtle);
+    margin-bottom: 1.5rem;
+    max-width: 600px;
+}
+
+.social-links {
+    display: flex;
+    gap: 1rem;
+}
+
+.social-links a {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-secondary);
+    border-radius: 8px;
+    color: var(--color-text-main);
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+.social-links a:hover {
+    background: var(--color-bg-card-hover);
+    border-color: var(--color-border-hover);
+    transform: translateY(-2px);
+}
+
+#mailButton {
+    width: auto;
+    padding: 0 1rem;
+    background-color: var(--color-button-bg);
+    color: var(--color-button-text);
+    font-weight: bold;
+}
+
+#mailButton:hover {
+    background-color: var(--color-button-hover-bg);
+    color: var(--color-button-hover-text);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--color-button-hover-shadow);
+    transition: all 0.3s ease;
+}
+
+.location {
+    opacity: 0;
+    animation: fadeIn 0.8s ease forwards;
+    animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Bento Grid */
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: minmax(120px, auto);
+    gap: 1.5rem;
+    margin: 3rem 0;
+}
+
+.bento-box {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-main);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s;
+}
+
+#bento-box-experience,
+#bento-box-stack,
+#bento-box-education {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-main);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s;
+}
+
+#bento-box-experience {
+    grid-column: span 7;
+    grid-row: span 1;
+    min-width: 260px;
+}
+
+#bento-box-stack {
+    grid-column: span 5;
+    grid-row: span 1;
+    min-width: 150px;
+}
+
+#bento-box-education {
+    grid-column: span 5;
+    grid-row: span 1;
+}
+
+.spec {
+    font-weight: 400;
+    font-size: 0.95rem;
+    color: var(--color-text-spec);
+}
+
+/* Certificates Section */
+#bento-box-certificates {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    grid-column: span 7;
+    max-height: 480px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+/* Certificate Items */
+.cert-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.cert-list-wrapper {
+    max-height: 480px;
+    overflow-y: auto;
+}
+
+.cert-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-cert);
+    transition: all 0.2s ease;
+}
+
+.cert-item:hover {
+    background: var(--color-bg-card-hover);
+    border-color: var(--color-border-cert-hover);
+}
+
+.cert-item h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--color-text-main);
+    margin: 0;
+}
+
+.cert-item p {
+    font-size: 0.85rem;
+    color: var(--color-text-secondary);
+    margin-left: auto;
+}
+
+.view-cert-btn {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.8rem;
+    background: var(--color-border-secondary);
+    border: none;
+    border-radius: 6px;
+    margin-left: 2rem;
+    color: var(--color-text-main);
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.view-cert-btn:hover {
+    background: var(--color-border-hover);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 500px;
+    max-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+
+.modal-content img {
+    max-width: 100%;
+    max-height: 70vh;
+    object-fit: contain;
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+        transform: scale(1);
+    }
+    to {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+}
+
+.modal.closing .modal-content {
+    animation: fadeOut 0.25s ease forwards;
+}
+
+#close-modal {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    font-size: 28px;
+    font-weight: bold;
+    color: #333;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+#close-modal:hover {
+    color: #000;
+}
+
+.bento-box:hover {
+    background: var(--color-bg-card-hover);
+    transform: translateX(4px);
+}
+
+.bento-box h2 {
+    font-size: 1.3rem;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.bento-box .icon {
+    font-size: 1.5rem;
+}
+
+.bento-item {
+    margin-bottom: 1.5rem;
+}
+
+.bento-item:last-child {
+    margin-bottom: 0;
+}
+
+.bento-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+}
+
+.bento-item .subtitle {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+}
+
+.bento-item .date {
+    color: var(--color-text-date);
+    font-size: 0.85rem;
+    justify-content: flex-end;
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.tech-tag {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border-secondary);
+    padding: 0.3rem 0.8rem;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--color-text-subtle);
+}
+
+/* Projects Section */
+.projects-section {
+    margin-top: 3rem;
+}
+
+.projects-section h2 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+.project-card {
+    background: var(--color-bg-card);
+    border: 1px solid var(--color-border-main);
+    border-radius: 12px;
+    padding: 2rem;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.project-card:hover {
+    border-color: var(--color-border-hover);
+    transform: translateY(-4px);
+}
+
+.project-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 0.8rem;
+}
+
+.project-card .project-description {
+    color: var(--color-text-subtle);
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+}
+
+.project-links {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.project-link {
+    color: var(--color-text-secondary);
+    text-decoration: none;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    transition: color 0.3s;
+}
+
+.project-link:hover {
+    color: var(--color-text-main);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 7px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-scrollbar-track);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-scrollbar-thumb);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-scrollbar-thumb-hover);
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .bento-grid {
+        grid-template-columns: 1fr;
+    }
+
+    #bento-box-stack,
+    #bento-box-education,
+    #bento-box-experience,
+    #bento-box-certificates {
+        grid-column: 1 / -1 !important;
+        width: 100%;
+        min-width: 0;
+    }
+
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
